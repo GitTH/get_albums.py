@@ -92,5 +92,5 @@ for album in albums:
         else:
             print "Already retreived image %s of album %s." % (counter, album['name'])
 
-        if image.has_key('name'):
-            print image["name"]
+#        if image.has_key('name'):
+            #print image["name"]
