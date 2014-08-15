@@ -2,6 +2,8 @@
 
 import requests, re, os, shutil, json
 
+target = raw_input('Enter a target ID or username (e.g. me OR nike): ')
+
 # i have my access token in a file named access_token
 # but you could also just assign it to this variable
 try:
@@ -27,7 +29,7 @@ json_filename = os.path.join(data_path, "album_list.json")
 
 if not os.path.exists(json_filename):
     # getting all album details for the token's user
-    r = requests.get("https://graph.facebook.com/me/albums?access_token=%s" % my_token)
+    r = requests.get("https://graph.facebook.com/%s/albums?access_token=%s" % (target, my_token))
 
     # dropping out if we get a bad http response
     if r.status_code != 200:
