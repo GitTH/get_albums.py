@@ -80,8 +80,9 @@ for album in albums:
 
     for counter, image in enumerate(images):
         counter += 1
-	    nametime = str(counter) + " " + image["created_time"].replace(":","-")
-        image_filename = os.path.join(album_path, "%s.jpg" % nametime)
+	createtime = image["created_time"].replace(":","-")
+        timeid = "%s %s" % (createtime, image["id"])
+        image_filename = os.path.join(album_path, "%s.jpg" % timeid)
 
         if not os.path.exists(image_filename):
             print "Downloading image %s of album %s." % (counter, album['name'])
