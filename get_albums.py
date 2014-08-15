@@ -64,7 +64,7 @@ for album in albums:
     json_filename = os.path.join(data_path, "%s.json" % album_dir_name)
 
     if not os.path.exists(json_filename):
-        r2 = requests.get("https://graph.facebook.com/%s/photos?access_token=%s"
+        r2 = requests.get("https://graph.facebook.com/%s/photos?fields=source&limit=1000&access_token=%s"
                           % (album['id'], my_token))
         # saving JSON response for the image list
         json_file = open(json_filename, "w")
