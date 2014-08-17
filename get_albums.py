@@ -15,8 +15,8 @@ except IOError:
     "contents to a file named access_token in this directory.\n"
     exit()
 
-data_path = os.path.join(os.getcwd(), 'data')
-albums_path = os.path.join(os.getcwd(), 'albums')
+albums_path = os.path.join(os.getcwd(), target + '_albums')
+data_path = albums_path + '/data'
 
 # creating data and album directories if they don't exist
 if not os.path.exists(data_path):
