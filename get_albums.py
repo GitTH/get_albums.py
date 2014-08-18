@@ -1,8 +1,11 @@
 #!/usr/bin/python
 
-import requests, re, os, shutil, json
+import requests, re, os, shutil, json, sys
 
-target = raw_input('Enter a target ID or username (e.g. me OR nike): ')
+if len(sys.argv) > 1:
+    target = sys.argv[1]
+else:
+    target = raw_input('Enter a target ID or username (e.g. me OR nike): ')
 
 # i have my access token in a file named access_token
 # but you could also just assign it to this variable
