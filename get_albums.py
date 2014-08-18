@@ -32,7 +32,7 @@ json_filename = os.path.join(data_path, "album_list.json")
 
 if not os.path.exists(json_filename):
     # getting all album details for the token's user
-    r = requests.get("https://graph.facebook.com/%s/albums?access_token=%s" % (target, my_token))
+    r = requests.get("https://graph.facebook.com/%s/albums?fields=name&limit=100&access_token=%s" % (target, my_token))
 
     # dropping out if we get a bad http response
     if r.status_code != 200:
