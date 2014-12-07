@@ -86,7 +86,7 @@ for album in albums:
     for counter, image in enumerate(images):
         counter += 1
 	createtime = image["created_time"].replace(":","-")
-        timeid = "%s %s" % (createtime, image["id"])
+        timeid = "%s_%s" % (createtime, image["id"])
         image_filename = os.path.join(album_path, "%s.jpg" % timeid)
 
         if not os.path.exists(image_filename):
