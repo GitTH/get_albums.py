@@ -58,7 +58,7 @@ else:
 pattern = re.compile('[\W]+')
 
 for album in albums:
-    print 'Processing album "%s" with id %s.' % (album['name'], album['id'])
+    print 'Processing album "%s" with id %s.' % (album['name'].encode('ascii','ignore'), album['id'])
 
     album_dir_name = pattern.sub('', album['name'].replace(' ','_'))
     album_path = os.path.join(albums_path, album_dir_name)
@@ -96,7 +96,7 @@ for album in albums:
             shutil.copyfileobj(r3.raw, image_file)
             image_file.close()
         else:
-            print "Already retreived image %s of album %s." % (counter, album['name'])
+            print "Already retreived image %s of album %s." % (counter, album_dir_name)
 
 #        if image.has_key('name'):
             #print image["name"]
