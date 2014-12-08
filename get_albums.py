@@ -61,8 +61,8 @@ for album in albums:
     print 'Processing album "%s" with id %s.' % (album['name'].encode('ascii','ignore'), album['id'])
 
     album_dir_name = pattern.sub('', album['name'].replace(' ','_'))
-    album_dir_name = album_dir_name.replace('Mobile_Uploads','Timeline_Photos')
     album_path = os.path.join(albums_path, album_dir_name)
+    album_path = album_path.replace('Mobile_Uploads','Timeline_Photos')
 
     if not os.path.exists(album_path):
         os.makedirs(album_path)
@@ -86,7 +86,7 @@ for album in albums:
 
     for counter, image in enumerate(images):
         counter += 1
-	createtime = image["created_time"].replace(":","-")
+        createtime = image["created_time"].replace(":","-")
         timeid = "%s_%s" % (createtime, image["id"])
         image_filename = os.path.join(album_path, "%s.jpg" % timeid)
 
