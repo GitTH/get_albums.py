@@ -26,6 +26,6 @@ If you have an access token, application ID application secret key, a longer las
     echo [access_token_from_api_explorer] > access_token
     get_albums.py
 
-    **NOTES**
+**NOTES**
 
 Uploads to the "Mobile Uploads" album are merged with "Timeline Photos" album.  File names are stored as date (ISO 8601 with `:` replaced with `-`) _ objectID.
