@@ -61,6 +61,7 @@ for album in albums:
     print 'Processing album "%s" with id %s.' % (album['name'].encode('ascii','ignore'), album['id'])
 
     album_dir_name = pattern.sub('', album['name'].replace(' ','_'))
+    album_dir_name = album_dir_name.replace('Mobile_Uploads','Timeline_Photos')
     album_path = os.path.join(albums_path, album_dir_name)
 
     if not os.path.exists(album_path):
