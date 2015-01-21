@@ -62,9 +62,10 @@ else:
 pattern = re.compile('[\W]+')
 
 for album in albums:
-    print 'Processing album "%s" with id %s.' % (album['name'].encode('ascii','ignore'), album['id'])
+    album_dir_name = album['name'].encode('ascii','ignore')
+    print 'Processing album "%s" with id %s.' % (album_dir_name, album['id'])
 
-    album_dir_name = pattern.sub('', album['name'].replace(' ','_'))
+    album_dir_name = pattern.sub('', album_dir_name.replace(' ','_'))
     album_path = os.path.join(albums_path, album_dir_name)
     album_path = album_path.replace('Mobile_Uploads','Timeline_Photos')
 
@@ -92,7 +93,7 @@ for album in albums:
         image_filename = os.path.join(album_path, "%s.jpg" % timeid)
 
         if not os.path.exists(image_filename):
-            print "Downloading image %s of album %s." % (counter, album['name'])
+            print "Downloading image %s of album %s." % (counter, album_dir_name)
             r3 = requests.get(image["source"], stream=True)
             image_file = open(image_filename, "wb")
             shutil.copyfileobj(r3.raw, image_file)
